@@ -1,0 +1,1129 @@
+You are building the first functional React version of an immersive electronic press kit for the DJ and producer VPM.
+
+Your task is to create the complete project skeleton and a polished, responsive first implementation. Do not pursue endless visual refinement. The project will be adjusted later in another development tool.
+
+# 1. EXECUTION AND TOKEN LIMIT
+
+This is a strict requirement:
+
+* Do not consume more than 80,000 tokens.
+* Target approximately 45,000–60,000 tokens.
+* Do not start autonomous redesign loops.
+* Do not repeatedly audit or rewrite working components.
+* Do not produce extensive documentation.
+* Do not over-engineer the architecture.
+* Inspect the source material once.
+* Create a concise implementation plan.
+* Build the project.
+* Run the relevant validation commands.
+* Fix only concrete errors.
+* Stop after the first complete, functional version is ready.
+
+Prioritize a clean, editable, extensible foundation over pixel-perfect refinement.
+
+# 2. PROJECT OBJECTIVE
+
+Transform the existing static HTML press kit into a dynamic, data-driven React experience.
+
+The central creative concept is:
+
+“FOLLOW THE FLAME”
+
+VPM focuses primarily on Bass House and Deep Tech, while also moving through Tech House, House, Minimal, Techno, and related underground club sounds.
+
+The site should feel:
+
+* Dark
+* Premium
+* Underground
+* Urban
+* Energetic
+* Editorial
+* Immersive
+* Contemporary
+* Designed for bookers, promoters, clubs, festivals, and collaborators
+
+Fire must work as the main visual and narrative thread, but the project must NOT look like a generic hell, horror, satanic, or heavy-metal website.
+
+The flame represents:
+
+* Energy
+* Movement
+* Connection
+* Groove
+* Transformation
+* Tension and release
+* The progression of a live set
+
+Balance the flame concept with:
+
+* Deep black negative space
+* Controlled red and ember-orange accents
+* Monochrome photography
+* Urban graffiti marks
+* Thin editorial borders
+* Condensed typography
+* Vinyl and club-culture references
+* Restrained animation
+* Clear information hierarchy
+
+# 3. REQUIRED SOURCE FILES
+
+Before writing code, inspect every file inside the `/reference` directory.
+
+The project root should contain:
+
+```text
+/reference/current-presskit.html
+/reference/presskit-mockup.jpeg
+/reference/vpm-graffiti.jpeg
+/reference/vpm-ring.jpeg
+/reference/vpm-flame-character.jpeg
+```
+
+Use them as follows:
+
+## `/reference/current-presskit.html`
+
+This is the current static press kit.
+
+Extract and preserve its useful real content, including:
+
+* Biography
+* Artist information
+* Social media URLs
+* SoundCloud embeds and URLs
+* YouTube embed and URL
+* Support names
+* Venue names
+* Gallery image URLs
+* Existing Open Graph metadata
+* Existing Cloudinary assets
+* Relevant media descriptions
+
+Do not carry over its monolithic HTML/CSS/JavaScript architecture.
+
+## `/reference/presskit-mockup.jpeg`
+
+This is the primary visual reference for:
+
+* Brand hierarchy
+* Color palette
+* Typography direction
+* Section numbering
+* Editorial grids
+* Photography treatment
+* Fire placement
+* Technical rider
+* Social information
+* Booking information
+* “Follow the Flame” identity
+
+Do not display the complete mockup image anywhere on the final website. It is a design reference only.
+
+Do not recreate the mockup as a collection of static slides. Translate its visual system into an immersive, responsive website.
+
+## `/reference/vpm-graffiti.jpeg`
+
+This is the urban graffiti-style VPM identity asset.
+
+It includes:
+
+* VPM graffiti lettering
+* Crown
+* “Music Connects People”
+* “09”
+* Hand-drawn urban details
+
+Use it as:
+
+* A secondary brand mark
+* A watermark
+* An urban transition asset
+* A detail in the About or Socials section
+
+Do not use it as a repetitive background texture across the entire website.
+
+## `/reference/vpm-ring.jpeg`
+
+This is the circular VPM typographic mark.
+
+Use it primarily for:
+
+* Splash screen
+* Loading state
+* Section transition
+* Scroll-progress motif
+* Subtle rotating brand element
+
+Do not spin it rapidly.
+
+## `/reference/vpm-flame-character.jpeg`
+
+This is a secondary vintage character illustration.
+
+Use it sparingly as:
+
+* An urban sticker
+* A visual accent
+* A small editorial illustration
+* A secondary element near the “Follow the Flame” interlude or footer
+
+Do not make the entire website revolve around the devil character.
+
+Do not create additional demonic imagery.
+
+# 4. REFERENCE ASSET HANDLING
+
+Treat `/reference` as read-only source material.
+
+Do not:
+
+* Delete files from `/reference`
+* Rename files inside `/reference`
+* Modify the original reference files
+* Import production assets directly from `/reference`
+* Expose the mockup file publicly
+
+Copy only the brand assets used by the website into organized production directories:
+
+```text
+/public/assets/brand/vpm-graffiti.jpeg
+/public/assets/brand/vpm-ring.jpeg
+/public/assets/brand/vpm-flame-character.jpeg
+```
+
+Create additional directories only when necessary:
+
+```text
+/public/assets/gallery/
+/public/assets/media/
+/public/assets/downloads/
+```
+
+The complete mockup should remain inside `/reference`.
+
+# 5. TECHNOLOGY
+
+Use a lightweight React stack:
+
+* Vite
+* React
+* TypeScript
+* Tailwind CSS
+* Motion for React, imported from `motion/react`
+* Three.js
+* React Three Fiber
+* Lucide React
+
+Do not add:
+
+* Next.js
+* A backend
+* A database
+* Authentication
+* A CMS
+* An admin panel
+* Redux or another external state-management system
+* Spline
+* GSAP unless it becomes absolutely necessary
+* Heavy postprocessing libraries
+* A component library that is not needed
+
+The final project should be suitable for deployment as a static Vite application on Vercel.
+
+Use semantic HTML and reusable React components.
+
+# 6. DATA-DRIVEN CONTENT
+
+All editable artist information must live in one typed content file:
+
+```text
+src/content/artistData.ts
+```
+
+Create proper TypeScript interfaces or types.
+
+The content file should contain:
+
+* Artist name
+* Tagline
+* Roles
+* Location
+* Short biography
+* Extended biography
+* Musical identity
+* Genre list
+* Primary genres
+* Social links
+* Booking information
+* SoundCloud mixes
+* YouTube videos
+* Support names
+* Venues and appearances
+* Gallery items
+* Technical rider requirements
+* Download links
+* Navigation labels
+* SEO information
+
+Do not scatter artist information across individual components.
+
+Retain the useful real content and working URLs from `current-presskit.html`.
+
+Do not replace real information with generic placeholders.
+
+Do not invent:
+
+* Career achievements
+* Festival appearances
+* Record-label affiliations
+* Streaming statistics
+* Press quotes
+* Awards
+* Collaborations
+* Track names
+* Dates or venues not present in the source material
+
+When information is unavailable, create one clearly marked editable placeholder in `artistData.ts`.
+
+# 7. CONTENT CORRECTIONS
+
+Correct obvious interface grammar:
+
+* Replace “Support By” with “Supported By”
+* Replace “Gigs & Partys” with “Selected Appearances” or “Gigs & Venues”
+* Correct “Los Grandres” to “Los Grandes” only if the source clearly refers to that project
+
+Do not rewrite personal names or artist names unless there is an obvious typo.
+
+# 8. VISUAL DESIGN SYSTEM
+
+Use this approximate palette:
+
+```text
+Background:       #050505
+Surface black:    #0B0B0B
+Elevated surface: #121212
+Main text:        #F3F0EA
+Muted text:       #9A9690
+Flame red:        #E1261C
+Ember orange:     #FF5428
+Deep red:         #620D0D
+```
+
+Use translucent warm gray and red for subtle borders.
+
+Red must be selective. Most of the interface should remain:
+
+* Black
+* Charcoal
+* White
+* Grayscale photography
+
+Avoid:
+
+* Purple cyberpunk colors
+* Blue neon
+* Generic glassmorphism
+* Large collections of rounded cards
+* Constant glowing borders
+* Excessive gradients
+* Literal flames behind every section
+
+# 9. TYPOGRAPHY
+
+Use:
+
+* One aggressive condensed display font for headings
+* One neutral, highly readable sans-serif font for body content
+* One gothic or blackletter treatment only for the central “FOLLOW THE FLAME” statement
+
+Do not use gothic typography for:
+
+* Paragraphs
+* Menus
+* Buttons
+* Social links
+* Technical-rider information
+* Booking details
+
+Load fonts efficiently.
+
+Typography should include:
+
+* Large section numbers
+* Oversized cropped headings
+* Tight uppercase labels
+* Small editorial captions
+* Clear body text
+* Fluid sizes using `clamp()`
+
+# 10. GLOBAL FIRE SHADER
+
+Create one persistent, fixed WebGL canvas behind the entire website.
+
+Use React Three Fiber and a custom procedural fragment shader.
+
+The shader should suggest:
+
+* Slow flame movement
+* Smoke
+* Heat distortion
+* Soft embers
+* Flowing energy
+
+The shader should be atmospheric rather than literal.
+
+Requirements:
+
+* Keep the central reading areas dark.
+* Place brighter activity near edges and selected transitions.
+* Use black, deep red, muted orange, and occasional warm white.
+* Do not create a full-screen wall of bright flames.
+* Do not interfere with text readability.
+* React subtly to scroll progress.
+* React very subtly to pointer position on desktop.
+* Do not require pointer interaction on mobile.
+* Use only one shared WebGL canvas.
+* Do not create a separate canvas for each section.
+* Cap device pixel ratio around 1.5.
+* Pause or reduce the animation when the browser tab is hidden.
+* Reduce shader complexity on mobile.
+* Respect `prefers-reduced-motion`.
+* Provide a CSS gradient/noise fallback if WebGL is unavailable.
+* Do not use a heavy postprocessing pipeline.
+
+Create a small, centralized configuration object for:
+
+* Speed
+* Intensity
+* Distortion
+* Ember amount
+* Color values
+* Mobile quality
+* Pixel-ratio limit
+
+This will allow later visual adjustments without rewriting the shader.
+
+WebGL must always remain decorative. All important content must exist as accessible HTML.
+
+# 11. SPLASH SCREEN
+
+Create a full-screen splash experience.
+
+Sequence:
+
+1. Start on black.
+2. Reveal the circular VPM typographic mark from `vpm-ring.jpeg`.
+3. Let it rotate very slowly or reveal it through a radial mask.
+4. Introduce a subtle ignition glow from the center.
+5. Reveal:
+
+   * VPM
+   * FOLLOW THE FLAME
+   * ELECTRONIC PRESS KIT
+6. Display a restrained progress indicator while essential assets load.
+7. Present a button labeled:
+
+   * “ENTER”
+   * or “FOLLOW THE FLAME”
+8. Transition smoothly into the hero after interaction.
+
+Rules:
+
+* Do not autoplay audio.
+* Do not add a sound toggle.
+* Do not create fake sound controls.
+* Do not trap the user in the splash.
+* Use a timeout fallback so the entry button always becomes available.
+* Remember entry for the current browser session with `sessionStorage`.
+* On a repeat visit during the same session, use a short transition.
+* Reduced-motion mode should use a simple fade.
+* The splash should be visually impressive but brief.
+* Do not add artificial loading delays.
+
+# 12. NAVIGATION
+
+Create a minimal fixed navigation system.
+
+Desktop navigation:
+
+* Small VPM mark
+* Section links
+* Booking CTA
+* Subtle scroll-progress flame line or ember indicator
+
+Mobile navigation:
+
+* Compact top bar
+* Accessible menu drawer
+* Large tap targets
+* Close button
+* Escape-key support
+* Focus management
+* No horizontal overflow
+
+Use smooth anchor navigation.
+
+Do not:
+
+* Hijack native scrolling
+* Lock scrolling during normal browsing
+* Convert vertical page scrolling into forced horizontal scrolling
+* Create long sticky sequences that prevent users from reaching other sections
+
+# 13. SITE STRUCTURE
+
+Implement the site in this order:
+
+1. Splash Screen
+2. Hero / Ignition
+3. About VPM
+4. The Sound
+5. Musical Identity
+6. Live Experience
+7. Featured Mixes
+8. Supported By
+9. Selected Appearances
+10. Follow the Flame Interlude
+11. Technical Rider
+12. Gallery
+13. Socials
+14. Booking
+15. Footer
+
+# 14. HERO — “IGNITION”
+
+Create a cinematic, full-viewport hero.
+
+Include:
+
+* VPM logo or wordmark
+* “FOLLOW THE FLAME”
+* “DJ & PRODUCER”
+* Bass House
+* Deep Tech
+* Tech House
+* One short positioning line
+* Primary CTA: “LISTEN TO THE MIXES”
+* Secondary CTA: “BOOK VPM”
+* Social shortcuts
+* Scroll cue
+
+Use one strong real artist image referenced in `current-presskit.html`.
+
+The artist must remain the focal point.
+
+The flame shader and logos should support the portrait without obscuring it.
+
+Use subtle parallax between:
+
+* Artist portrait
+* Main logo
+* Tagline
+* Background flame
+* Small urban details
+
+Do not make the hero feel like a conventional centered profile card.
+
+# 15. ABOUT VPM — “THE SOURCE”
+
+Use the biography from the existing HTML.
+
+Do not display all four long source paragraphs as one uninterrupted block.
+
+Transform the biography into:
+
+* One concise lead paragraph
+* Two supporting paragraphs
+* Optional expandable detail
+* Location: Chihuahua, Mexico
+* One portrait
+* A small “Music Connects People” graffiti detail
+
+Communicate:
+
+* Darkness, elegance, and energy
+* Immersive musical journeys
+* The ability to read and shape a room
+* Professionalism
+* Technical precision
+* Value for promoters, venues, and audiences
+
+Use an editorial asymmetric layout inspired by the mockup.
+
+# 16. THE SOUND
+
+Create a bold genre-focused section.
+
+Emphasize:
+
+* Bass House
+* Deep Tech
+
+Also include:
+
+* Tech House
+* House
+* Minimal
+* Techno
+
+Bass House and Deep Tech must receive the strongest visual emphasis.
+
+Genre names can:
+
+* Move slowly
+* Shift with scroll
+* Change opacity
+* React subtly to hover
+
+They must always remain readable.
+
+Include concise copy about:
+
+* Low-end pressure
+* Hypnotic vocals
+* Groove
+* Tension
+* Release
+* Dance-floor connection
+
+Do not use generic animated equalizer bars.
+
+# 17. MUSICAL IDENTITY
+
+Translate the corresponding mockup panel into a responsive web composition.
+
+Use the idea that VPM searches for tracks with vocals and groove that do more than make people dance: they invite the crowd to sing, connect, and become part of the journey.
+
+Create a split or layered composition containing:
+
+* Editorial copy
+* A vinyl, waveform, or turntable-inspired visual
+* Subtle flame treatment
+* Circular “Follow the Flame” detail
+* Monochrome club imagery
+
+Do not turn this section into another biography.
+
+# 18. LIVE EXPERIENCE
+
+Use the real photographs and media URLs from the static HTML.
+
+Create an asymmetric editorial collage inspired by the mockup.
+
+Include concise messages such as:
+
+* Every performance is unique.
+* The dance floor tells a different story each time.
+* Energy is built progressively.
+* Each set moves from tension to collective release.
+
+Add the featured YouTube live set using the real URL from the source HTML.
+
+Desktop:
+
+* Allow a privacy-enhanced YouTube embed.
+* Maintain the correct aspect ratio.
+* Do not autoplay.
+
+Mobile:
+
+* Initially show a poster image and play button.
+* Load the iframe only after user interaction.
+* Do not autoplay.
+* Do not allow the video to overflow.
+
+# 19. FEATURED MIXES
+
+Convert the current SoundCloud content into reusable React cards.
+
+Each item should support:
+
+* Title
+* Optional “NEW RELEASE” label
+* Description
+* Cover or poster
+* Duration if actually known
+* SoundCloud URL
+* SoundCloud embed URL
+* External-listen button
+
+Do not eagerly load every SoundCloud iframe.
+
+Use this behavior:
+
+1. Display a designed poster/card.
+2. Load the SoundCloud iframe only after the user presses Play.
+3. Keep only one active embedded player when practical.
+
+Also provide clear external buttons for:
+
+* SoundCloud
+* YouTube
+
+Do not reproduce the QR codes from the mockup unless valid QR image assets exist. Direct buttons are more appropriate for a website.
+
+# 20. SUPPORTED BY
+
+Preserve the real names from the existing HTML.
+
+Create a slow, seamless horizontal marquee.
+
+Requirements:
+
+* Pause on hover.
+* Pause when keyboard focus enters.
+* Provide a static wrapped-list fallback for reduced-motion mode.
+* Do not expose duplicated names to screen readers.
+* Do not use a heavy animation dependency only for the marquee.
+* Keep the names readable on mobile.
+
+# 21. SELECTED APPEARANCES
+
+Preserve the real venue names and image URLs from the current HTML.
+
+Create a responsive horizontal gallery or card rail.
+
+Desktop behavior:
+
+* The mouse wheel must continue scrolling the page normally.
+* Do not create scroll locking.
+* Do not capture the vertical wheel to force horizontal movement.
+* Provide previous and next buttons.
+* Optional pointer dragging is allowed.
+
+Mobile behavior:
+
+* Touch swipe
+* Scroll snapping
+* Previous and next buttons
+* Cards that fit inside the viewport
+* No content clipping
+* No horizontal document overflow
+
+Use “Selected Appearances” or “Gigs & Venues” as the heading.
+
+# 22. FOLLOW THE FLAME INTERLUDE
+
+Create one strong editorial interlude inspired by panel 05 of the mockup.
+
+Display:
+
+```text
+FOLLOW
+THE
+FLAME
+```
+
+Use:
+
+* Oversized typography
+* Black negative space
+* Subtle ember movement
+* One restrained gothic treatment
+* A controlled temporary increase in shader intensity
+* A clean transition into the technical rider
+
+The shader must return to its restrained state afterward.
+
+Do not add paragraphs or unrelated content to this section.
+
+# 23. TECHNICAL RIDER
+
+Create a professional, responsive technical-rider section based on the mockup.
+
+Include:
+
+* Compatible with professional club-standard equipment
+* Pioneer DJ / AlphaTheta
+* CDJ-2000 / CDJ-3000
+* XDJ series
+* DJM-900
+* DJM-900NXS2
+* DJM-V10
+* Standard club setup
+* Booth monitors and subwoofer
+* Professional lighting
+* Stable power supply
+* Rekordbox
+
+Keep every requirement editable in `artistData.ts`.
+
+Add a configurable download button:
+
+```text
+DOWNLOAD TECHNICAL RIDER
+```
+
+If an actual rider PDF is not supplied:
+
+* Do not generate a fake PDF.
+* Do not create an empty PDF.
+* Keep the file path configurable.
+* Visually disable the download button.
+* Add a clear code comment showing where the final PDF must be placed.
+
+Do not build the rider as a wide desktop table that overflows on mobile.
+
+Use responsive cards, columns, or grouped lists.
+
+# 24. GALLERY
+
+Use the real Cloudinary gallery images extracted from `current-presskit.html`.
+
+Create:
+
+* Editorial mixed-ratio grid or masonry composition
+* Responsive image loading
+* Lazy loading
+* Full-screen accessible lightbox
+* Previous navigation
+* Next navigation
+* Keyboard arrow navigation
+* Escape to close
+* Visible close button
+* Image counter
+* Optional image download
+* Correct body-scroll restoration after closing
+
+Preserve the existing Cloudinary download technique when appropriate:
+
+* Insert `fl_attachment` after `/upload/` for the download URL.
+
+Do not load every full-resolution image during the initial page load.
+
+Use Cloudinary transformations or appropriate responsive image parameters when possible.
+
+Provide aspect ratios to prevent layout shift.
+
+# 25. SOCIALS
+
+Create a concise social section using the real links found in the HTML.
+
+Expected platforms include:
+
+* Instagram
+* Facebook
+* SoundCloud
+* YouTube
+
+Only include another platform when a valid URL is present.
+
+Do not render dead `#` links.
+
+Use:
+
+* VPM graffiti identity
+* Circular logo
+* Platform icons
+* Clear external-link labels
+
+Make it obvious that external links open another website.
+
+# 26. BOOKING
+
+Create a strong final booking section.
+
+Use the booking details shown in the press-kit mockup:
+
+```text
+Contact: Iram Alvidrez
+Phone / WhatsApp: 614 210 0637
+Email: isp4r74@gmail.com
+```
+
+Keep all booking values editable in `artistData.ts`.
+
+Include:
+
+* “BOOK VPM”
+* Email button
+* WhatsApp button
+* Copy-email action
+* Social shortcuts
+* Final “FOLLOW THE FLAME” signature
+
+Create a properly normalized WhatsApp link using the Mexico country code.
+
+Do not build:
+
+* A contact form
+* A backend
+* Email submission logic
+* A database
+
+# 27. FOOTER
+
+Include:
+
+* VPM
+* Electronic Press Kit
+* Current copyright year
+* Social links
+* Back-to-top control
+* Minimal credits area
+* A subtle use of the secondary flame character or graffiti asset
+
+Keep the footer restrained.
+
+# 28. MOTION SYSTEM
+
+Use Motion for React selectively.
+
+Recommended effects:
+
+* Section reveals
+* Text-mask reveals
+* Image clipping
+* Small parallax transforms
+* Hover shifts
+* Scroll-progress response
+* One controlled flame-intensity transition
+* Smooth splash-to-hero transition
+
+Avoid:
+
+* Animating every paragraph
+* Excessive spring effects
+* Rapidly spinning elements
+* Large custom cursor followers
+* Scroll-jacking
+* Scroll locks
+* Horizontal page overflow
+* Excessive blur
+* Constant screen shaking
+* Fake loading delays
+* WebGL-rendered essential text
+* Animation that reduces readability
+
+All primary content must exist in normal HTML.
+
+# 29. RESPONSIVE REQUIREMENTS
+
+Build mobile-first.
+
+Test at minimum:
+
+* 360 × 800
+* 390 × 844
+* 768 × 1024
+* 1366 × 768
+* 1440 × 900
+* Large desktop widths
+
+Requirements:
+
+* No horizontal document overflow.
+* No clipped headings.
+* No overflowing tables.
+* No overflowing embeds.
+* No fixed-width sections that break on mobile.
+* No navigation items outside the viewport.
+* No gallery controls outside safe areas.
+* Minimum interactive target size around 44px.
+* Use fluid typography with `clamp()`.
+* Respect mobile safe-area insets.
+* Use `100dvh` where appropriate.
+* Use responsive image sizes.
+* Mobile must preserve the visual identity.
+* Do not reduce mobile to a generic stack of identical cards.
+
+# 30. ACCESSIBILITY
+
+Include:
+
+* Semantic landmarks
+* Logical heading hierarchy
+* Keyboard-accessible navigation
+* Visible focus states
+* Accurate accessible names
+* Meaningful alt text
+* Empty alt text for decorative images
+* Focus trapping in the gallery lightbox
+* Focus trapping in the mobile menu
+* Escape-key handling
+* Focus restoration after closing overlays
+* `aria-current` when appropriate
+* Adequate color contrast
+* Reduced-motion behavior
+* Buttons for actions and links for navigation
+* Screen-reader-safe marquee behavior
+
+# 31. PERFORMANCE
+
+Target a polished but lightweight experience.
+
+Requirements:
+
+* Lazy-load below-the-fold images.
+* Defer YouTube and SoundCloud embeds until interaction.
+* Use only one WebGL canvas.
+* Cap canvas pixel ratio.
+* Avoid heavy postprocessing.
+* Avoid autoplaying background video.
+* Avoid autoplaying audio.
+* Preload only essential splash and hero assets.
+* Provide image dimensions or aspect ratios.
+* Prevent cumulative layout shift.
+* Pause unnecessary animation when the tab is hidden.
+* Keep the site usable before WebGL finishes loading.
+* Keep the site usable if WebGL fails.
+* Avoid downloading the full gallery during the splash.
+* Keep JavaScript bundle growth under control.
+
+# 32. SEO AND SHARING
+
+Use the real metadata from the existing HTML as the starting point.
+
+Implement:
+
+* Spanish document language
+* Descriptive page title
+* Meta description
+* Canonical URL configuration
+* Open Graph title
+* Open Graph description
+* Open Graph image
+* Twitter/X summary-large-image card
+* Theme color
+* Favicon using a simplified VPM asset
+* JSON-LD for a music artist or performing artist when appropriate
+
+Keep deployment-specific URLs easy to update from one configuration location.
+
+Do not keep outdated URLs if the final domain is unknown. Use a clearly marked configuration value.
+
+# 33. RECOMMENDED FILE STRUCTURE
+
+Use a structure similar to:
+
+```text
+src/
+├── app/
+│   └── App.tsx
+├── components/
+│   ├── layout/
+│   │   ├── SiteHeader.tsx
+│   │   └── SiteFooter.tsx
+│   ├── sections/
+│   │   ├── HeroSection.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── SoundSection.tsx
+│   │   ├── MusicalIdentitySection.tsx
+│   │   ├── LiveExperienceSection.tsx
+│   │   ├── FeaturedMixesSection.tsx
+│   │   ├── SupportMarquee.tsx
+│   │   ├── AppearancesSection.tsx
+│   │   ├── FlameInterlude.tsx
+│   │   ├── TechnicalRiderSection.tsx
+│   │   ├── GallerySection.tsx
+│   │   ├── SocialsSection.tsx
+│   │   └── BookingSection.tsx
+│   ├── ui/
+│   │   ├── SplashScreen.tsx
+│   │   ├── MediaEmbed.tsx
+│   │   ├── GalleryLightbox.tsx
+│   │   └── SectionHeading.tsx
+│   └── webgl/
+│       ├── FlameCanvas.tsx
+│       ├── FlameMaterial.ts
+│       └── shaders/
+├── content/
+│   └── artistData.ts
+├── hooks/
+├── styles/
+├── types/
+├── main.tsx
+└── index.css
+```
+
+Public assets:
+
+```text
+public/
+└── assets/
+    ├── brand/
+    ├── gallery/
+    ├── media/
+    └── downloads/
+```
+
+Do not split trivial markup into dozens of tiny components.
+
+# 34. IMPLEMENTATION QUALITY
+
+The first version must:
+
+* Run locally.
+* Build successfully.
+* Have no missing imports.
+* Have no obvious TypeScript errors.
+* Have no console-breaking runtime errors.
+* Use the provided assets.
+* Use the real content extracted from the source HTML.
+* Be fully responsive.
+* Include a functional splash screen.
+* Include the procedural flame background or safe fallback.
+* Include functional navigation.
+* Include deferred SoundCloud and YouTube media.
+* Include the supported-by marquee.
+* Include the appearances rail.
+* Include the technical rider.
+* Include the accessible gallery lightbox.
+* Include direct booking actions.
+* Remain readable with reduced motion.
+* Remain usable if WebGL fails.
+
+# 35. REQUIRED WORKFLOW
+
+Follow this exact workflow:
+
+1. Inspect every file in `/reference`.
+2. Read the existing HTML and extract its real content and URLs.
+3. Analyze the mockup and brand assets.
+4. Present an implementation plan in no more than 12 concise bullets.
+5. Check whether a React project already exists.
+6. If it does not exist, scaffold a Vite React TypeScript project in the current root directory.
+7. Do not overwrite unrelated existing files.
+8. Install only the required dependencies.
+9. Build `artistData.ts` and its types first.
+10. Establish design tokens and the global responsive layout.
+11. Implement the splash screen and hero.
+12. Implement the remaining sections.
+13. Implement the flame shader and fallback.
+14. Add responsive, performance, and accessibility behavior.
+15. Run the build command.
+16. Run lint if configured.
+17. Fix only concrete build, lint, TypeScript, or runtime errors.
+18. Stop when the first complete version is functional.
+
+# 36. FINAL RESPONSE
+
+At completion, provide a concise report containing only:
+
+* What was built
+* Important files
+* Commands to run the project
+* Validation results
+* Remaining real assets or links that still need to be supplied
+* Any clearly marked placeholder that remains
+
+Do not write a long retrospective.
+
+Do not ask for approval during implementation unless an essential reference file is genuinely missing.
+
+The final result should feel like the existing VPM press-kit mockup evolved into a modern, immersive, responsive web experience.
+
+It must not feel like:
+
+* A generic DJ template
+* A static PDF converted directly into HTML
+* A literal inferno
+* A horror website
+* A heavy-metal band website
+* A collection of identical cards
+* An over-engineered experimental demo
+
+Build the complete first functional version now.

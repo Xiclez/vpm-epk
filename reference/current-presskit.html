@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPM - Presskit</title>
+    <meta name="description" content="Presskit oficial de VPM. DJ y Productor originario de Chihuahua. Tech House, Techno, Minimal Bass y mas">
+    <meta name="keywords" content="VPM, DJ, Chihuahua, Tech House, Techno, Electronic Music, Presskit, EPK">
+    <meta name="author" content="VPM">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vpm-presskit.vercel.app"> <meta property="og:title" content="VPM - DJ & Producer | Official EPK">
+    <meta property="og:description" content="Explora el sonido de VPM: Tech House, Techno y atmósferas profundas. Sets en vivo y lanzamientos.">
+    <meta property="og:image" content="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769215325/WhatsApp_Image_2025-12-10_at_6.55.28_PM-removebg-preview_supvfd.png"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VPM - DJ & Producer">
+    <meta name="twitter:description" content="Explora el sonido de VPM: Tech House, Techno y atmósferas profundas.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769215325/WhatsApp_Image_2025-12-10_at_6.55.28_PM-removebg-preview_supvfd.png">
+
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769215325/WhatsApp_Image_2025-12-10_at_6.55.28_PM-removebg-preview_supvfd.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sec: #b3b3b3;
+            --accent: #ff3e3e; 
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- HERO SECTION --- */
+        /* --- HERO SECTION CON LOGO DE FONDO --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative; /* Necesario para posicionar el logo detrás */
+    overflow: hidden;   /* Evita que el logo se salga si es muy grande */
+    background: radial-gradient(circle at center, #2a2a2a 0%, #121212 100%); /* Tu fondo original */
+    z-index: 1;
+}
+
+/* LA MARCA DE AGUA (LOGO DE FONDO) */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar perfectamente */
+    width: 80%;  /* Tamaño del logo respecto al ancho de la pantalla */
+    height: 80%;
+    max-width: 600px; /* Que no se haga gigante en pantallas enormes */
+    
+    /* --- [AQUÍ VA TU LOGO] --- */
+    background-image: url('https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769215325/WhatsApp_Image_2025-12-10_at_6.55.28_PM-removebg-preview_supvfd.png'); 
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; /* Ajusta el logo para que se vea completo */
+    opacity: 0.1; /* Transparencia: Ajusta entre 0.05 y 0.2 según qué tan sutil lo quieras */
+    z-index: -1; /* Se coloca DETRÁS del texto */
+    pointer-events: none; /* Permite dar clic a lo que esté encima */
+}
+
+/* Asegura que el contenido (texto y foto) esté por encima del logo */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ajustes previos que ya tenías (solo para referencia) */
+.artist-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+    margin-bottom: 20px;
+    background-color: #333;
+    box-shadow: 0 0 20px rgba(255, 62, 62, 0.3);
+}
+
+        .artist-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            margin-bottom: 20px;
+            background-color: #333;
+            box-shadow: 0 0 20px rgba(255, 62, 62, 0.3);
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: -1px; }
+        .hero .roles { color: var(--text-sec); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; }
+
+        /* --- SOCIAL ICONS --- */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--text-sec);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border-radius: 50%;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #fff;
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 62, 62, 0.4);
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 50px 0; border-bottom: 1px solid #222; }
+        
+        h2.section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            text-transform: uppercase;
+        }
+
+        /* --- ABOUT ME SECTION --- */
+        /* --- ABOUT ME SECTION (Actualizado) --- */
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea al inicio para que el texto largo no estire la foto */
+    gap: 40px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #333; /* Un borde sutil para elegancia */
+}
+
+.about-text {
+    flex: 1; /* El texto ocupa el espacio disponible */
+}
+
+.about-text p { 
+    margin-bottom: 20px; 
+    color: #ddd; 
+    font-size: 1rem; 
+    text-align: justify; /* Justificado para más elegancia */
+}
+
+.about-highlight { 
+    color: var(--accent); 
+    font-weight: bold; 
+}
+
+/* Contenedor de la imagen a la derecha */
+.about-image {
+    flex: 0 0 350px; /* Ancho fijo de 350px para la columna de la foto */
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para profundidad */
+    object-fit: cover;
+}
+
+/* Responsive para celulares: La foto se va arriba o abajo y ocupa el 100% */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column-reverse; /* Pone la foto arriba del texto en móvil */
+        align-items: center;
+        text-align: left;
+    }
+    .about-image {
+        flex: auto;
+        width: 100%;
+        max-width: 400px; /* Que no sea gigante en tablets */
+        margin-bottom: 20px;
+    }
+}
+        
+        /* --- MUSIC LIST --- */
+        .track-list { display: flex; flex-direction: column; gap: 15px; }
+        .track-item {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+            border: 1px solid transparent;
+        }
+        .track-item:hover { transform: translateX(5px); border-color: #333; }
+        .track-cover {
+            width: 70px;
+            height: 70px;
+            background-color: #444;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+        .track-info { flex: 1; }
+        .track-title { font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 4px;}
+        .track-meta { color: var(--text-sec); font-size: 0.9rem; }
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+/* --- VIDEO / LIVESET SECTION --- */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 para YouTube */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background-color: #000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-info {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+}
+
+.video-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.video-desc {
+    font-size: 0.95rem;
+    color: var(--text-sec);
+}
+
+/* --- SUPPORT BY SECTION (Lyrics Style) --- */
+.support-container {
+    position: relative;
+    height: 300px; /* Altura de la ventana de visualización */
+    overflow: hidden;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ESTO ES LA MAGIA: Crea el desvanecimiento arriba y abajo */
+    mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 25%, 
+        black 75%, 
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 25%, 
+        black 75%, 
+        transparent 100%
+    );
+}
+
+.support-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* La animación infinita */
+    animation: scrollVertical 20s linear infinite;
+}
+
+.support-item {
+    font-size: 1.8rem; /* Fuente grande */
+    font-weight: 700;
+    padding: 10px 0;
+    color: var(--text-sec); /* Color "apagado" base */
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Efecto visual: Al pasar el mouse, todo se detiene y se ilumina un poco */
+.support-container:hover .support-list {
+    animation-play-state: paused;
+}
+
+.support-item:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+    cursor: default;
+}
+
+/* Definición de la animación */
+@keyframes scrollVertical {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); } /* Se mueve la mitad (porque duplicamos la lista) */
+}
+/* --- GIGS CAROUSEL (Horizontal Infinito) --- */
+/* --- GIGS CAROUSEL (Ancho Completo / Full Width) --- */
+.carousel-section {
+    /* Estas 4 líneas hacen la magia para romper el contenedor y ser full-width */
+    width: 100vw; 
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    
+    padding: 60px 0; /* Un poco más de espacio vertical */
+    overflow: hidden; 
+    background: var(--bg-color); /* Asegura que el fondo coincida */
+}
+
+/* IMPORTANTE: Evita que aparezca una barra de scroll horizontal en la página */
+body {
+    overflow-x: hidden;
+}
+
+/* La ventana visible */
+.carousel-window {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Máscara suavizada en los bordes */
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+/* El riel */
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scrollHorizontal 40s linear infinite; /* Un poco más lento para elegancia */
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+/* Elementos individuales */
+.gig-item {
+    display: flex;
+    align-items: center;
+    margin-right: 60px; /* Aumenté el espacio entre venues para que respiren más */
+    flex-shrink: 0;
+}
+
+/* Imagen circular */
+.gig-img {
+    width: 80px; /* Las hice un poco más grandes */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    margin-right: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+.gig-item:hover .gig-img {
+    transform: scale(1.1);
+}
+
+.gig-name {
+    font-weight: bold;
+    font-size: 1.3rem; /* Letra un poco más grande */
+    color: #e0e0e0;
+    text-transform: uppercase; /* Mayúsculas para más impacto */
+    letter-spacing: 1px;
+}
+
+/* Animación */
+@keyframes scrollHorizontal {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Ajustes Responsive */
+@media (max-width: 768px) {
+    .gig-img { width: 60px; height: 60px; }
+    .gig-name { font-size: 1rem; }
+    .gig-item { margin-right: 30px; }
+    /* En móvil a veces el 100vw da problemas, esto lo ajusta */
+    .carousel-section {
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+    }
+}
+
+/* Ajuste móvil */
+@media (max-width: 600px) {
+    .support-item { font-size: 1.4rem; }
+    .support-container { height: 250px; }
+}
+        /* --- EVENTS LIST --- */
+        .event-grid { display: grid; gap: 15px; }
+        .event-card {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .date-box {
+            background: #2a2a2a;
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+            text-align: center;
+        }
+        .date-day { font-size: 1.8rem; font-weight: bold; display: block; color: #fff;}
+        .date-month { font-size: 0.9rem; color: var(--accent); text-transform: uppercase; font-weight: bold;}
+        .event-details { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+        .event-name { font-weight: bold; font-size: 1.2rem; margin-bottom: 5px;}
+        .event-location { color: var(--text-sec); font-size: 0.95rem; }
+
+        /* --- GALLERY GRID --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            aspect-ratio: 1/1;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.8;}
+        .gallery-item:hover img { transform: scale(1.1); opacity: 1;}
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 60px 20px; color: var(--text-sec); font-size: 0.9rem; border-top: 1px solid #222;}
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content { flex-direction: column; text-align: center;}
+            .hero h1 { font-size: 2.5rem; }
+            .track-item { padding: 10px; }
+        }
+
+        /* --- MODAL / LIGHTBOX STYLES --- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 9999; /* Por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.95); /* Fondo negro casi opaco */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* Imagen dentro del modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 2px solid #333;
+}
+
+/* Botón de cerrar (X) */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Botón de Descarga */
+.download-btn {
+    margin-top: 20px;
+    background-color: var(--accent);
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+    border: 1px solid transparent;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+    color: #000;
+    border-color: var(--accent);
+}
+
+/* Hacemos que el cursor en la galería parezca clicable */
+.gallery-item img {
+    cursor: zoom-in;
+}
+
+/* --- RESPONSIVE VIDEO LOGIC --- */
+
+/* Por defecto (PC): Mostramos el video y ocultamos la imagen estática */
+.desktop-video { display: block; width: 100%; height: 100%; }
+.mobile-video { display: none; }
+
+/* En celulares (menor a 768px): Ocultamos el video real y mostramos la imagen */
+@media (max-width: 768px) {
+    .desktop-video { display: none; }
+    
+    .mobile-video { 
+        display: flex; 
+        width: 100%; 
+        height: 100%; 
+        position: absolute; 
+        top: 0; 
+        left: 0;
+        align-items: center; 
+        justify-content: center;
+        text-decoration: none;
+        background: #000;
+        cursor: pointer;
+    }
+}
+
+/* Estilos para el "Falso Reproductor" en móvil */
+.mobile-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7; /* Un poco oscuro para que resalte el botón */
+    transition: 0.3s;
+}
+
+.mobile-play-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 62, 62, 0.9); /* Rojo Accent */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.mobile-video:hover .mobile-thumb { opacity: 0.5; }
+.mobile-video:hover .mobile-play-icon { transform: scale(1.1); }
+
+/* --- SOUNDCLOUD TRACKS SECTION --- */
+.sc-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Ajuste para las tarjetas visuales de SoundCloud */
+.sc-card-wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden; /* Redondea las esquinas del iframe */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Sombra para darle profundidad */
+    transition: transform 0.3s;
+}
+
+.sc-card-wrapper:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+}
+
+/* La etiqueta NEW se mantiene igual */
+.new-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 62, 62, 0.6);
+    z-index: 10;
+    animation: pulse 2s infinite;
+}
+
+/* Animación suave para llamar la atención */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 62, 62, 0.6); }
+    50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 62, 62, 0.9); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 62, 62, 0.6); }
+}
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769210453/freepik__a-portrait-of-a-24-year-old-hispanic-man-with-fair__53050_yr6bia.jpg" alt="Artist Profile" class="artist-img">
+            <h1>VPM</h1>
+            <p class="roles">DJ & Producer</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/vpm_holyjunkie?igsh=MXBtbWR4d2ptcXFkbQ%3D%3D" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1GnsvGMfP4/?mibextid=wwXIfr" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <!--<a href="#" class="social-icon" title="Spotify"><i class="fab fa-spotify"></i></a>-->
+                <a href="https://soundcloud.com/iram-alvidrez" class="social-icon" title="Soundcloud"><i class="fab fa-soundcloud"></i></a>
+                <a href="https://www.youtube.com/channel/UCK_haacNtBCtIjhHGHz9rEg" class="social-icon" title="Youtube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+<section id="about">
+    <h2 class="section-title">Sobre Mí</h2>
+    <div class="about-content">
+        
+        <div class="about-text">
+            <p>
+                <span class="about-highlight">VPM</span> es un DJ que ha logrado convertir la oscuridad, la elegancia y la energía en una sola identidad sonora capaz de transformar cualquier pista. Su propuesta reúne lo mejor del Tech House, Techno, Indie Dance y Deep Tech, creando un viaje inmersivo donde las atmósferas profundas se mezclan con vocales hipnóticas y bajos que avanzan con una fuerza casi magnética. Cada presentación se convierte en una experiencia envolvente, diseñada para atrapar al público desde el primer beat y conducirlo hacia un estado colectivo de intensidad y conexión.
+            </p>
+            <p>
+                Originario de Chihuahua, VPM ha desarrollado un estilo propio que refleja la vibra urbana de su entorno y una visión musical que se mueve entre lo emocional y lo explosivo. Su capacidad para leer el ambiente y moldear la energía del lugar lo convierte en un talento versátil, ideal para clubes íntimos con estética underground, grandes escenarios, rooftops o eventos de marca que buscan una identidad sonora fuerte y moderna. No se limita a mezclar música: construye una narrativa que evoluciona a lo largo de su set, generando sensaciones que van desde la contemplación profunda hasta la euforia total.
+            </p>
+            <p>
+                VPM destaca por su profesionalismo y su enfoque detallado en cada presentación. Su selección musical es precisa, su manejo técnico impecable y su intención artística clara. Esto lo convierte en un DJ confiable y atractivo para promotores y venues que buscan elevar la experiencia del público y crear momentos memorables dentro de sus eventos. Cada una de sus presentaciones aporta un valor real: mayor engagement, mayor permanencia en pista y una atmósfera distintiva que enriquece la identidad del evento.
+            </p>
+            <p>
+                Para quienes buscan un DJ con una propuesta sólida, con sonido propio y con la capacidad de generar una conexión auténtica con el público, VPM representa una apuesta ideal. Su música no solo suena: se siente, se vive y se convierte en parte de la experiencia colectiva, dejando huella en cada espacio que toca. Su presencia en un lineup asegura una mezcla de sofisticación, energía y autenticidad que eleva cualquier escenario y convierte cada presentación en una experiencia que permanece en la memoria.
+            </p>
+        </div>
+
+        <div class="about-image">
+            <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769210889/IMG_7302_oim3kl.jpg" alt="VPM DJ Profile">
+        </div>
+
+    </div>
+</section>
+        
+       <!--- <section id="music">
+            <h2 class="section-title">Últimos Lanzamientos</h2>
+            <div class="track-list">
+                <div class="track-item">
+                    <img src="https://via.placeholder.com/70" alt="Cover" class="track-cover">
+                    <div class="track-info">
+                        <span class="track-title">Joya</span>
+                        <div class="track-meta">Awesome Soundwave • Oct 10, 2025</div>
+                    </div>
+                    <a href="#" class="play-btn"><i class="fas fa-play"></i></a>
+                </div>
+                <div class="track-item">
+                    <img src="https://via.placeholder.com/70" alt="Cover" class="track-cover">
+                    <div class="track-info">
+                        <span class="track-title">Shake The Nation</span>
+                        <div class="track-meta">Factory 93 Records • Aug 15, 2025</div>
+                    </div>
+                    <a href="#" class="play-btn"><i class="fas fa-play"></i></a>
+                </div>
+                <div class="track-item">
+                    <img src="https://via.placeholder.com/70" alt="Cover" class="track-cover">
+                    <div class="track-info">
+                        <span class="track-title">Speed of Life</span>
+                        <div class="track-meta">Bush Records • Jun 01, 2025</div>
+                    </div>
+                    <a href="#" class="play-btn"><i class="fas fa-play"></i></a>
+                </div>
+            </div>
+        </section> -->
+
+<section id="music">
+    <h2 class="section-title">Live Sets & Tracks</h2>
+    
+    
+
+    <div class="sc-list">
+        
+        <div class="sc-card-wrapper">
+            <span class="new-tag">NEW RELEASE</span>
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/iram-alvidrez/vpm-b-day-2026-on-studio&color=%23ff3e3e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+            </iframe>
+        </div>
+
+        <div class="sc-card-wrapper">
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/iram-alvidrez/sets/transformation&color=%23ff3e3e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+            </iframe>
+        </div>
+
+        <div class="sc-card-wrapper">
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/iram-alvidrez/nocturnal-echoes&color=%23ff3e3e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+            </iframe>
+        </div>
+
+    </div>
+
+    <div class="video-responsive">
+        <div class="desktop-video">
+            <iframe 
+    src="https://www.youtube-nocookie.com/embed/eUQEsSZE7Yg?rel=0&controls=1&playsinline=1" 
+    title="VPM Live Set" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;">
+</iframe>
+        </div>
+        <a href="https://www.youtube.com/embed/eUQEsSZE7Yg?si=3AasgtQ8Hrl8KzIm" class="mobile-video" target="_blank">
+            <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769214455/Black_and_White_Minimalist_Modern_Music_Production_Studio_Business_Card_eqzqqt.png" alt="Ver en YouTube" class="mobile-thumb">
+            <div class="mobile-play-icon"><i class="fas fa-play"></i></div>
+        </a>
+    </div>
+
+    <div class="video-info" style="margin-bottom: 40px;">
+        <h3 class="video-title">VPM BDAY @ Studio Bar</h3>
+        <p class="video-desc">
+            Una sesión inmersiva de 1:30 horas recorriendo sonidos Tech House y Minimal Bass. 
+            Grabado en vivo en StudioBar Chihuahua, Enero 2026.
+        </p>
+    </div>
+
+</section>
+
+<section id="support">
+    <h2 class="section-title">Support By</h2>
+    
+    <div class="support-container">
+        <div class="support-list">
+            <div class="support-item">Samuel Lupian</div>
+            <div class="support-item">De La Reiver</div>
+            <div class="support-item">Alex Lozduar</div>
+            <div class="support-item">Ever Tapia</div>
+            <div class="support-item">Divixxion</div>
+            <div class="support-item">Totti</div>
+            <div class="support-item">Synk</div>
+            <div class="support-item">Ruary</div>
+            <div class="support-item">Los Grandres</div>
+            <div class="support-item">Exxotic</div>
+            <div class="support-item">Kevin Zamorano</div>
+            <div class="support-item">Seack</div>
+
+            <div class="support-item">Samuel Lupian</div>
+            <div class="support-item">De La Reiver</div>
+            <div class="support-item">Alex Lozduar</div>
+            <div class="support-item">Ever Tapia</div>
+            <div class="support-item">Divixxion</div>
+            <div class="support-item">Totti</div>
+            <div class="support-item">Synk</div>
+            <div class="support-item">Ruary</div>
+            <div class="support-item">Los Grandres</div>
+            <div class="support-item">Exxotic</div>
+            <div class="support-item">Kevin Zamorano</div>
+            <div class="support-item">Seack</div>
+        </div>
+    </div>
+</section>
+
+<section id="gigs" class="carousel-section">
+    <h2 class="section-title">Gigs & Partys</h2>
+    
+    <div class="carousel-window">
+        <div class="carousel-track">
+            
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/283344215_305230331808884_1334220189795785226_n_t5dghg.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Epicentro</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/527452439_18233857495288765_8697610036031186230_n_w7bdso.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Zulu Coctail & Lounge</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213721/154844876_459705698557620_160901859768699531_n_u8ppxq.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">StudioBar</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/489880522_1335868967652607_8496667785564096930_n_qh9r13.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">El Camino Mezcaleria</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/447799061_1510941989838463_3262853843744824137_n_p5tiqc.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Booz inside</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/337656477_134825399540196_4162967201138695440_n_ttyaqx.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Patio Mamitas</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/325322805_914691736376400_9054788658765717016_n_clsehq.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">La Puerta de Alcalá CUU</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/475977051_632824309435968_1699175458973705315_n_ii5nsi.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Summer Forest Fest</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/574105972_17896899123337696_434186040606095028_n_mxbaxw.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Winter Lotus Fest</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/395044326_312682728161169_1840215908911257268_n_oxqrkw.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Electroroom CUU</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/452346534_1535316610387049_5716491048862926439_n_mmqro7.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Agora Beats CUU</span>
+            </div>
+
+
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/283344215_305230331808884_1334220189795785226_n_t5dghg.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Epicentro</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/527452439_18233857495288765_8697610036031186230_n_w7bdso.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Zulu Coctail & Lounge</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213721/154844876_459705698557620_160901859768699531_n_u8ppxq.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">StudioBar</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/489880522_1335868967652607_8496667785564096930_n_qh9r13.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">El Camino Mezcaleria</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/447799061_1510941989838463_3262853843744824137_n_p5tiqc.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Booz inside</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/337656477_134825399540196_4162967201138695440_n_ttyaqx.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Patio Mamitas</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/325322805_914691736376400_9054788658765717016_n_clsehq.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">La Puerta de Alcalá CUU</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/475977051_632824309435968_1699175458973705315_n_ii5nsi.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Summer Forest Fest</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213657/574105972_17896899123337696_434186040606095028_n_mxbaxw.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Winter Lotus Fest</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/395044326_312682728161169_1840215908911257268_n_oxqrkw.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Electroroom CUU</span>
+            </div>
+            <div class="gig-item">
+                <img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/452346534_1535316610387049_5716491048862926439_n_mmqro7.jpg" alt="Venue" class="gig-img">
+                <span class="gig-name">Agora Beats CUU</span>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+       <!--- <section id="events">
+            <h2 class="section-title">Próximos Eventos</h2>
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="date-box">
+                        <span class="date-day">31</span>
+                        <span class="date-month">Dic</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-name">New Year's At The Bowl</div>
+                        <div class="event-location">Sidney Myer Music Bowl, Australia</div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="date-box">
+                        <span class="date-day">12</span>
+                        <span class="date-month">Feb</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-name">Audiology & George FM</div>
+                        <div class="event-location">Tauranga, Nueva Zelanda</div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <section id="gallery">
+            <h2 class="section-title">Galería</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212147/IMG_5170_kutpl0.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212148/IMG_5729_awcrxx.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212146/550430df-02d7-4cdf-9a34-de2df4ca5ec3_mz10ry.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212149/IMG_5675_qrn2nh.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212149/IMG_5680_vbwl1v.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212152/IMG_5710_nph4hm.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212152/IMG_5669_pmnrih.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212154/IMG_5719_p8t675.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212154/IMG_5714_oo29m4.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212158/IMG_5705_mks5dq.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212160/IMG_5670_za66du.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212171/IMG_5700_xsc094.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212173/IMG_5699_olfdvd.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212146/freepik__professional-studio-photo-of-a-26yearold-hispanic-__53051_pkcbet.jpg" alt="Gallery"></div>
+                <div class="gallery-item"><img src="https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769212146/freepik__a-portrait-of-a-24-year-old-hispanic-man-with-fair__53050_kvnmlu.jpg" alt="Gallery"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 VPM Official. All rights reserved.</p>
+    </footer>
+<div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="imgFull">
+    <a id="downloadLink" href="#" class="download-btn" target="_blank" download>
+        <i class="fas fa-download"></i> Descargar Imagen
+    </a>
+</div>
+
+<script>
+    // Obtener elementos del DOM
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("imgFull");
+    const downloadLink = document.getElementById("downloadLink");
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    // Seleccionar todas las imágenes de la galería
+    const galleryImages = document.querySelectorAll(".gallery-item img");
+
+    // Añadir evento click a cada imagen
+    galleryImages.forEach(img => {
+        img.addEventListener("click", function() {
+            modal.classList.add("show"); // Mostrar modal
+            modalImg.src = this.src;     // Poner la imagen clicada en el modal
+            
+            // --- LOGICA DE DESCARGA FORZADA PARA CLOUDINARY ---
+            let originalUrl = this.src;
+            
+            // Verificamos si es una url de Cloudinary para aplicar el truco
+            if(originalUrl.includes("cloudinary.com") && originalUrl.includes("/upload/")) {
+                // Cloudinary permite forzar descarga agregando 'fl_attachment' después de 'upload'
+                // Esto le dice al servidor: "Envía esto como archivo adjunto, no como imagen visible"
+                let downloadUrl = originalUrl.replace("/upload/", "/upload/fl_attachment/");
+                downloadLink.href = downloadUrl;
+            } else {
+                // Si cambias de servidor en el futuro, funcionará como enlace normal
+                downloadLink.href = originalUrl;
+            }
+        });
+    });
+
+    // Función para cerrar el modal
+    function closeModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+            modalImg.src = ""; 
+        }, 300);
+    }
+
+    // Cerrar al dar clic en la X
+    closeBtn.onclick = function() { closeModal(); }
+
+    // Cerrar al dar clic fuera de la imagen
+    modal.onclick = function(event) {
+        if (event.target === modal) { closeModal(); }
+    }
+    
+    // Cerrar con la tecla ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") { closeModal(); }
+    });
+</script>
+</body>
+</html>

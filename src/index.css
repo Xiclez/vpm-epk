@@ -1,0 +1,222 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------- tokens -- */
+@theme {
+  --color-ink: #050505;
+  --color-surface: #0b0b0b;
+  --color-elevated: #121212;
+  --color-bone: #f3f0ea;
+  --color-muted: #9a9690;
+  --color-flame: #e1261c;
+  --color-ember: #ff5428;
+  --color-deepred: #620d0d;
+
+  /* Translucent warm-gray / red hairlines. */
+  --color-line: rgb(243 240 234 / 0.1);
+  --color-line-strong: rgb(243 240 234 / 0.22);
+  --color-line-warm: rgb(225 38 28 / 0.3);
+
+  --font-display: 'Oswald', 'Arial Narrow', 'Helvetica Neue', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Used only for the central FOLLOW THE FLAME statement. */
+  --font-gothic: 'Pirata One', 'Times New Roman', serif;
+
+  /* Fluid editorial scale. */
+  --text-eyebrow: 0.6875rem;
+  --text-caption: 0.8125rem;
+  --text-lead: clamp(1.0625rem, 0.4vw + 1rem, 1.3125rem);
+  --text-number: clamp(2.75rem, 8vw, 5rem);
+  --text-h3: clamp(1.375rem, 2.2vw, 2rem);
+  --text-h2: clamp(2.25rem, 6.5vw, 4.75rem);
+  --text-mega: clamp(3rem, 13vw, 10rem);
+  --text-hero: clamp(4.5rem, 21vw, 16rem);
+}
+
+/* ------------------------------------------------------------------ base -- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /*
+     * `clip` rather than `hidden`: it prevents any stray decorative element
+     * from creating a horizontal scrollbar without turning the root into a
+     * scroll container (which would break position: sticky).
+     */
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-body);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Anchor targets clear the fixed header. */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ember);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-flame);
+    color: var(--color-bone);
+  }
+
+  img {
+    /* Avoids inline-gap layout surprises inside editorial grids. */
+    display: block;
+  }
+}
+
+/* ------------------------------------------------------------ components -- */
+@utility eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Grayscale photography treatment — colour returns subtly on interaction. */
+@utility photo-mono {
+  filter: grayscale(1) contrast(1.08) brightness(0.86);
+  transition:
+    filter 700ms ease,
+    transform 700ms ease;
+}
+
+/* Oversized cropped section numbers. */
+@utility section-number {
+  font-family: var(--font-display);
+  font-size: var(--text-number);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(243 240 234 / 0.28);
+}
+
+/* --------------------------------------------------------------- marquee -- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: vpm-marquee 48s linear infinite;
+}
+
+.marquee-viewport:hover .marquee-track,
+.marquee-viewport:focus-within .marquee-track,
+.marquee-track[data-paused='true'] {
+  animation-play-state: paused;
+}
+
+@keyframes vpm-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Very slow brand-ring rotation. Never fast. */
+.ring-slow-spin {
+  animation: vpm-ring-spin 90s linear infinite;
+}
+
+@keyframes vpm-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ember drift used by the interlude sparks. */
+@keyframes vpm-ember-drift {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.6);
+  }
+  30% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(6px, -46px, 0) scale(1);
+  }
+}
+
+/* Horizontal rail: hide the scrollbar without disabling native scrolling. */
+.rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Soft edge fade for marquees and rails. */
+.edge-fade {
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+/* CSS-only fallback shown when WebGL is unavailable or reduced-motion is set. */
+.flame-fallback {
+  background:
+    radial-gradient(120% 70% at 8% 100%, rgb(225 38 28 / 0.2) 0%, transparent 55%),
+    radial-gradient(120% 70% at 92% 100%, rgb(255 84 40 / 0.16) 0%, transparent 55%),
+    radial-gradient(90% 60% at 50% 0%, rgb(98 13 13 / 0.28) 0%, transparent 60%),
+    var(--color-ink);
+}
+
+.flame-fallback::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ------------------------------------------------------- reduced motion -- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track,
+  .ring-slow-spin {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
