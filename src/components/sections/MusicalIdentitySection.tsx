@@ -1,12 +1,8 @@
 import { artistData } from '../../content/artistData'
-import { thumb } from '../../lib/media'
 import { FlameBadge } from '../ui/FlameBadge'
 import { Reveal } from '../ui/Reveal'
 import { Section } from '../ui/Section'
 import { SectionHeading } from '../ui/SectionHeading'
-
-/** Monochrome club image reused as the vinyl label. */
-const LABEL_IMAGE = artistData.gallery[4].src
 
 export function MusicalIdentitySection() {
   const { lead, body, pullQuote } = artistData.musicalIdentity
@@ -55,17 +51,20 @@ export function MusicalIdentitySection() {
             >
               {/*
                 Label — the only visible rotation cue. The animation lives on
-                the image so it cannot overwrite the wrapper's centring
+                the video so it cannot overwrite the wrapper's centring
                 transform, and the circular clip keeps the square covered.
               */}
-              <div className="absolute top-1/2 left-1/2 size-[34%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border border-line-warm">
-                <img
-                  src={thumb(LABEL_IMAGE, '1:1', 480)}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="ring-slow-spin photo-mono size-full object-cover"
-                />
+              <div className="absolute top-1/2 left-1/2 size-[34%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border border-line-warm bg-ink">
+                {/* --- VIDEO LABEL --- */}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="animate-[spin_6s_linear_infinite] size-full object-cover"
+                >
+                  <source src="/assets/media/character.mp4" type="video/mp4" />
+                </video>
               </div>
 
               {/* Spindle hole. */}

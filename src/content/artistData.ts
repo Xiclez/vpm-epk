@@ -201,6 +201,11 @@ export const artistData: ArtistData = {
 
   venues: [
     {
+      name: 'Festival Antojos 2026',
+      image:
+        'https://res.cloudinary.com/dn4m0kr7j/image/upload/v1786409911/antojos_s7fwjb.png',
+    },
+    {
       name: 'Epicentro',
       image:
         'https://res.cloudinary.com/dbdy6vu2o/image/upload/v1769213656/283344215_305230331808884_1334220189795785226_n_t5dghg.jpg',

@@ -1,31 +1,56 @@
-import { Suspense, lazy } from 'react'
-import { useReducedMotion } from 'motion/react'
-import { hasWebGL } from '../../lib/webgl'
+import { useRef } from 'react';
+import { Canvas, useFrame, useThree, extend, type ThreeElement } from '@react-three/fiber';
+import { FlameMaterial } from './FlameMaterial';
 
-// Kept out of the critical bundle: the site is fully usable before this loads.
-const FlameCanvas = lazy(() => import('./FlameCanvas'))
+extend({ FlameMaterial });
 
-/**
- * Fixed decorative background layer.
- *
- * The CSS gradient/noise fallback is always painted underneath, so it doubles
- * as the WebGL-unavailable and reduced-motion presentation.
- */
-export function FlameBackground() {
-  const reducedMotion = useReducedMotion()
-  const webgl = hasWebGL()
-  const useCanvas = webgl && !reducedMotion
+declare module '@react-three/fiber' {
+  interface ThreeElements {
+    flameMaterial: ThreeElement<typeof FlameMaterial>;
+  }
+}
+
+// Inner mesh component that safely uses R3F hooks inside <Canvas>
+function FlameMesh() {
+  const materialRef = useRef<any>(null);
+  const { viewport } = useThree();
+
+  useFrame((state) => {
+    if (materialRef.current) {
+      materialRef.current.uTime = state.clock.elapsedTime;
+    }
+  });
 
   return (
-    <div
-      aria-hidden="true"
-      className="flame-fallback pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+    <mesh>
+      <planeGeometry args={[viewport.width, viewport.height]} />
+      <flameMaterial 
+        ref={materialRef} 
+        transparent={true}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
+// Outer component rendered by App.tsx
+export function FlameBackground() {
+  return (
+    <div 
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        width: '100vw', 
+        height: '100vh', 
+        zIndex: -1, 
+        pointerEvents: 'none', 
+        background: '#050505'
+      }}
     >
-      {useCanvas && (
-        <Suspense fallback={null}>
-          <FlameCanvas />
-        </Suspense>
-      )}
+      <Canvas camera={{ position: [0, 0, 1] }} dpr={[1, 2]}>
+        <FlameMesh />
+      </Canvas>
     </div>
-  )
+  );
 }

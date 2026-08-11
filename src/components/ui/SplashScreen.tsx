@@ -87,6 +87,21 @@ export function SplashScreen({
       className="fixed inset-0 z-100 flex flex-col items-center justify-center overflow-hidden bg-ink px-6"
       style={{ height: '100dvh' }}
     >
+      {/* --- ADDED VIDEO BACKGROUND --- */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-screen">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover"
+        >
+          <source src="/assets/media/character.mp4" type="video/mp4" />
+        </video>
+        {/* Gradient mask to anchor the text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50" />
+      </div>
+
       {/* Ignition glow from the centre. */}
       <motion.div
         aria-hidden="true"
@@ -103,19 +118,6 @@ export function SplashScreen({
           background:
             'radial-gradient(42% 42% at 50% 50%, rgba(255,84,40,0.55) 0%, rgba(225,38,28,0.18) 38%, transparent 72%)',
         }}
-      />
-
-      {/* Circular VPM typographic mark, revealed through a radial mask. */}
-      <motion.img
-        src={brandAssets.ring}
-        alt=""
-        aria-hidden="true"
-        initial={{ clipPath: 'circle(0% at 50% 50%)', opacity: 0 }}
-        animate={{ clipPath: 'circle(70% at 50% 50%)', opacity: 0.5 }}
-        transition={{ duration: staged ? 1.7 : 0.5, ease: EASE }}
-        className={`pointer-events-none absolute w-[min(115vw,44rem)] max-w-none opacity-50 mix-blend-screen ${
-          staged ? 'ring-slow-spin' : ''
-        }`}
       />
 
       <div className="relative flex flex-col items-center text-center">
